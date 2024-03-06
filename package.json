@@ -1,0 +1,43 @@
+{
+	"name": "directus-helpers",
+	"version": "1.0.0",
+	"description": "Helpers Directus Extensions",
+	"author": "AntoXa PRO <info@antoxa.pro>",
+	"homepage": "https://antoxahub.ru/antoxa/directus-helpers",
+	"repository": {
+		"type": "git",
+		"url": "https://antoxahub.ru/antoxa/directus-helpers.git"
+	},
+	"module": "./dist/index.mjs",
+	"main": "./dist/index.umd.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"requier": "./dist/index.umd.js"
+		},
+		"./dist/*": "./dist/*",
+		"./package.json": "./package.json",
+		"./tsconfig.json": "./tsconfig.json"
+	},
+	"files": [
+		"dist",
+		"tsconfig.json"
+	],
+	"scripts": {
+		"build": "vite build",
+		"prepare": "npm run build"
+	},
+	"keywords": [
+		"Directus"
+	],
+	"devDependencies": {
+		"@directus/api": "^18.0.0",
+		"@directus/extensions-sdk": "^11.0.0",
+		"prettier": "^3.2.5",
+		"vite": "^5.1.5",
+		"vite-plugin-dts": "^3.7.3"
+	},
+	"license": "ISC"
+}
