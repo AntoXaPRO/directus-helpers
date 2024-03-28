@@ -1,7 +1,8 @@
 {
 	"name": "directus-helpers",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Helpers Directus Extensions",
+	"license": "ISC",
 	"author": "AntoXa PRO <info@antoxa.pro>",
 	"homepage": "https://antoxahub.ru/antoxa/directus-helpers",
 	"repository": {
@@ -33,11 +34,10 @@
 		"Directus"
 	],
 	"devDependencies": {
-		"@directus/api": "^18.0.0",
-		"@directus/extensions-sdk": "^11.0.0",
-		"prettier": "^3.2.5",
-		"vite": "^5.1.5",
-		"vite-plugin-dts": "^3.7.3"
-	},
-	"license": "ISC"
+		"@directus/api": "latest",
+		"@directus/extensions-sdk": "latest",
+		"prettier": "latest",
+		"vite": "latest",
+		"vite-plugin-dts": "latest"
+	}
 }
