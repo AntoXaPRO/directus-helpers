@@ -37,7 +37,7 @@ export class FactoryServices<TTypes extends TFactoryTypes = any> {
 		return this._items[name] as ItemsService<TService>
 	}
 
-	files() {
+	get files() {
 		if (!this._files) {
 			this._files = new this.opts.services.FilesService({
 				schema: this.opts.schema,
@@ -47,7 +47,7 @@ export class FactoryServices<TTypes extends TFactoryTypes = any> {
 		return this._files as FilesService
 	}
 
-	users() {
+	get users() {
 		if (!this._users) {
 			this._users = new this.opts.services.UserService({
 				schema: this.opts.schema,
