@@ -1,5 +1,9 @@
 import type { SchemaOverview, Accountability } from '@directus/types'
-import type { ItemsService, FilesService } from '@directus/api/dist/services'
+import type {
+	ItemsService,
+	FilesService,
+	UsersService
+} from '@directus/api/dist/services'
 
 export type TFactoryServicesOpts = {
 	services: any
@@ -10,13 +14,12 @@ export type TFactoryServicesOpts = {
 type TServices<K extends keyof any> = { [P in K]: any }
 export type TFactoryTypes = Record<string, any>
 
-export class FactoryServices<
-	TTypes extends TFactoryTypes = any,
-> {
+export class FactoryServices<TTypes extends TFactoryTypes = any> {
 	private opts: TFactoryServicesOpts
 
 	private _items: Partial<TServices<keyof TTypes>> = {}
 	private _files: FilesService | null = null
+	private _users: UsersService | null = null
 
 	constructor(opts: TFactoryServicesOpts) {
 		this.opts = opts
@@ -43,5 +46,14 @@ export class FactoryServices<
 		}
 		return this._files as FilesService
 	}
-}
 
+	users() {
+		if (!this._users) {
+			this._users = new this.opts.services.UserService({
+				schema: this.opts.schema,
+				accountability: this.opts.accountability
+			})
+		}
+		return this._users as UsersService
+	}
+}

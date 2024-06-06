@@ -1,8 +1,7 @@
 {
 	"name": "directus-helpers",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Helpers Directus Extensions",
-	"license": "ISC",
 	"author": "AntoXa PRO <info@antoxa.pro>",
 	"homepage": "https://antoxahub.ru/antoxa/directus-helpers",
 	"repository": {
@@ -30,9 +29,6 @@
 		"build": "vite build",
 		"prepare": "npm run build"
 	},
-	"keywords": [
-		"Directus"
-	],
 	"devDependencies": {
 		"@directus/api": "latest",
 		"@directus/extensions-sdk": "latest",
