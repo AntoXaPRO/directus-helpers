@@ -2,7 +2,8 @@ import type { SchemaOverview, Accountability } from '@directus/types'
 import type {
 	ItemsService,
 	FilesService,
-	UsersService
+	UsersService,
+	RolesService
 } from '@directus/api/dist/services'
 
 export type TFactoryServicesOpts = {
@@ -20,6 +21,7 @@ export class FactoryServices<TTypes extends TFactoryTypes = any> {
 	private _items: Partial<TServices<keyof TTypes>> = {}
 	private _files: FilesService | null = null
 	private _users: UsersService | null = null
+	private _roles: RolesService | null = null
 
 	constructor(opts: TFactoryServicesOpts) {
 		this.opts = opts
@@ -49,11 +51,21 @@ export class FactoryServices<TTypes extends TFactoryTypes = any> {
 
 	get users() {
 		if (!this._users) {
-			this._users = new this.opts.services.UserService({
+			this._users = new this.opts.services.UsersService({
 				schema: this.opts.schema,
 				accountability: this.opts.accountability
 			})
 		}
 		return this._users as UsersService
+	}
+
+	get roles() {
+		if (!this._roles) {
+			this._roles = new this.opts.services.RolesService({
+				schema: this.opts.schema,
+				accountability: this.opts.accountability
+			})
+		}
+		return this._roles as RolesService
 	}
 }
