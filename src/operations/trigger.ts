@@ -1,10 +1,13 @@
-export type TTrigger = {
-	path: string
-	query: any,
-	body: {
+export type TTriggerBody<TEntity extends Record<string, unknown> = {}> =
+	TEntity & {
 		collection: string
-	},
-	method: 'GET' | 'POST',
+	}
+
+export type TTrigger<TBody extends Record<string, unknown> = {}> = {
+	path: string
+	query: any
+	body: TTriggerBody<TBody>
+	method: 'GET' | 'POST'
 	headers: {
 		host: string
 		connection: string
